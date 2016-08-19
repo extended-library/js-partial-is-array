@@ -8,7 +8,7 @@
  * More information on [JavaScript Open Standards]{@link https://github.com/jsopenstd/jsopenstd}.
  *
  * @namespace js.partial
- * @version 0.0.0
+ * @version 0.0.1
  *
  * @author Richard King <richrdkng@gmail.com> [GitHub]{@link https://github.com/richrdkng}
  * @license [MIT]{@link https://github.com/jsopenstd/js-partial-foreach/blob/master/license.md}
@@ -43,14 +43,19 @@
      * @function isArray
      * @memberOf js.partial
      *
-     * @param {*}       object                          - The object to check.
-     * @param {boolean} [handleTypedArrayAsArray=false] - Handle a typed array as a regular array too.
-     *                                                    By default a typed array is not classified as a regular array.
-     * @param {boolean} [handleArrayLikeAsArray=false]  - Handle an array-like as a regular array too.
-     *                                                    An array-like is anything, that has a valid .length property
-     *                                                    and behaves as a collection, that stores values
-     *                                                    (e.g.: arguments, strings, objects based on arrays/objects).
-     *                                                    By default an array-like is not classified as a regular array.
+     * @param {*}            object                          - The object to check.
+     * @param {boolean|null} [handleTypedArrayAsArray=false] - Handle a typed array as a regular array too.
+     *                                                         By default a typed array is not classified
+     *                                                         as a regular array.
+     *                                                         **Pass null to skip this argument** and leave its value
+     *                                                         with the default value.
+     * @param {boolean}      [handleArrayLikeAsArray=false]  - Handle an array-like as a regular array too.
+     *                                                         An array-like is anything, that has a valid .length
+     *                                                         property and behaves as a collection, that stores values
+     *                                                         such as arguments, strings, other objects based on
+     *                                                         arrays or objects.
+     *                                                         By default an array-like is not classified
+     *                                                         as a regular array.
      *
      * @returns {boolean} If the object is an array, it will return true.
      */
@@ -60,22 +65,23 @@
 
         if (object !== null && typeof object === 'object') {
 
-            if ( ! handleTypedArray &&
-                 ! handleArrayLike) {
-
-                return Object.prototype.toString.call(object) === '[object Array]';
+            if (Object.prototype.toString.call(object) === '[object Array]') {
+                return true;
             }
 
             if (handleTypedArray) {
-                return object instanceof Int8Array         ||
-                       object instanceof Uint8Array        ||
-                       object instanceof Uint8ClampedArray ||
-                       object instanceof Int16Array        ||
-                       object instanceof Uint16Array       ||
-                       object instanceof Int32Array        ||
-                       object instanceof Uint32Array       ||
-                       object instanceof Float32Array      ||
-                       object instanceof Float64Array;
+                if (object instanceof Int8Array         ||
+                    object instanceof Uint8Array        ||
+                    object instanceof Uint8ClampedArray ||
+                    object instanceof Int16Array        ||
+                    object instanceof Uint16Array       ||
+                    object instanceof Int32Array        ||
+                    object instanceof Uint32Array       ||
+                    object instanceof Float32Array      ||
+                    object instanceof Float64Array) {
+
+                    return true;
+                }
             }
 
             if (handleArrayLike) {
