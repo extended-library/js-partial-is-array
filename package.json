@@ -1,6 +1,6 @@
 {
   "name": "js-partial-is-array",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A partial to check whether an object is an array.",
   "main": "dist/js-partial-is-array.js",
   "license": "MIT",
