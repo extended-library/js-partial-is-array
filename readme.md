@@ -24,7 +24,7 @@ npm install js-partial-is-array
 ## Usage
 
 For additional examples,
-check the **[test folder](https://github.com/jsopenstd/js-partial-is-array/tree/master/tests)**
+check the **[tests folder](https://github.com/jsopenstd/js-partial-is-array/tree/master/tests)**
 
 ```javascript
 // TODO
@@ -37,7 +37,7 @@ Check the source
 since it's well structured and documented. Also you can find the rendered jsDoc documentation on 
 [Doclets.io](https://doclets.io/jsopenstd/js-partial-is-array/master). 
 
-Also, check the [unit tests](https://github.com/jsopenstd/js-partial-is-array/blob/master/tests/tests.js) 
+Also, check the [unit tests](https://github.com/jsopenstd/js-partial-is-array/tree/master/tests) 
 in order to grasp the full-fledged capabilities.
 
 Have fun! ;)
